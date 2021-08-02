@@ -30,6 +30,8 @@ go build -o ./assets/main.wasm ./src/
 go env -w GOOS=windows GOARCH=amd64\
 ```
 
+Make sure the project is using the correct version of ```wasm_exec.js``` copied from ```Go/misc/wasm``` in your system.
+
 ### Run server
 
 ```
