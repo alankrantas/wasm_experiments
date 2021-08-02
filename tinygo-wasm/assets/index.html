@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TinyGolang + WebAssembly Example</title>
+
+    <script src="wasm_exec.js"></script>
+    <script src="nqueens.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>N-Queens algorithm (TinyGolang + WebAssembly)</h1>
+    <hr />
+    <p>
+        Number of queens (4~255): <input type="text" id="qnum" size="4">
+        <input type="button" value="Calculate" onclick="runNQueens(qnum.value);">
+    </p>
+    <p>
+        <label id="result1"></label>
+    </p>
+    <p>
+        <label id="result2"></label>
+    </p>
+</body>
+
+</html>
