@@ -1,8 +1,8 @@
 ## TinyGo + WebAssembly Example
 
-This WASM example can calculate N-Queen problems. In fact the webpage would call both wasm and JavaScript version and display the result/calculation time.
+This WASM example can calculate N-Queen problems. In fact the webpage would call both wasm and JavaScript version and display the results/calculation time.
 
-The wasm file is compiled by TinyGo 0.19.0. The website is served from ```/assets``` and the wasm source code is in ```/src```.
+The wasm file is compiled by TinyGo 0.19.0. The website is served from ```/assets``` and the wasm source code is in ```/src```. The core function is provided in ```nq.go``` in the ```src/nqueens``` package, which is written as normal Golang code.
 
 ### Run unit test on nqueens package
 
