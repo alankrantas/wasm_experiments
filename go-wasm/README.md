@@ -2,7 +2,7 @@
 
 This WASM example can query latest COVID cases of certain country from Johns Hopkins University's Github datasheet. The wasm file is compiled by Golang 1.16.6.
 
-The core function is provided in ```covid.go``` in the ```src/covid``` package, which is a standard Golang library. Be noted that in the JavaScript wrapper function in ```main.go```, an additional Goroutine is used because ```http.Get()``` in the covid package would [cause deadlock](https://pkg.go.dev/syscall/js#FuncOf).
+The core function is provided in ```covid.go``` in the ```src/covid``` package, which is written as normal Golang code. Be noted that in the JavaScript wrapper function in ```main.go```, an additional Goroutine is used because otherwise covid.go would [cause deadlock](https://pkg.go.dev/syscall/js#FuncOf) by calling ```http.Get()```.
 
 The website is served from ```assets```.
 
