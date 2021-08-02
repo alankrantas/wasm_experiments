@@ -1,10 +1,10 @@
 ## Go + WebAssembly Example
 
-This WASM example can query latest COVID cases of certain country from Johns Hopkins University's Github datasheet. The wasm file is compiled by Golang 1.16.6.
+This WASM example can query latest COVID cases of certain country from Johns Hopkins University's Github datasheet. The wasm file here is compiled by Golang 1.16.6.
 
 The core function is provided in ```covid.go``` in the ```src/covid``` package, which is written as normal Golang code. Be noted that in the JavaScript wrapper function in ```main.go```, an additional Goroutine is used because otherwise covid.go would [cause deadlock](https://pkg.go.dev/syscall/js#FuncOf) by calling ```http.Get()```.
 
-The website is served from ```assets```.
+The website is served from ```/assets``` and the source code of wasm is in ```/src```
 
 ### Run unit test on covid package
 
@@ -34,6 +34,13 @@ go env -w GOOS=windows GOARCH=amd64\
 
 ```
 go run server.go
+```
+
+or if you have Python installed:
+
+```
+(on Linux)> python3 -m http.server 8080 --directory ./assets
+(on Windows)> python -m http.server 8080 --directory ./assets
 ```
 
 And open ```http://localhost:8080``` in your browser.
