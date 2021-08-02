@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Golang + WebAssembly Example</title>
+
+    <script src="wasm_exec.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>COVID-19 Case Query (Golang + WebAssembly)</h1>
+    <p>Source: Johns Hopkins University</p>
+    <hr />
+    <p>
+        Country name: <input type="text" id="region" size="10">
+        <input type="button" value="查詢" onclick="queryCovidCase(region.value)">
+    </p>
+    <p>
+        <label id="result"></label>
+    </p>
+</body>
+
+</html>
