@@ -26,7 +26,7 @@ tinygo build -o ./assets/tiny.wasm -target wasm ./src
 
 Make sure the project is using the correct version of ```wasm_exec.js``` copied from ```tinygo/target``` in your system.
 
-The generated wasm size is only 5% of the standard Golang version, however the compile time is also a bit longer.
+The generated wasm size is only 5% of the standard Golang version, however the compilation time is also a bit longer.
 
 ### Run server
 
@@ -45,4 +45,6 @@ And open ```http://localhost:8080``` in your browser.
 
 ### Why wasm runs slower?
 
-if you use Chrome or Edge browser, you may notice that the JavaScript version of N-QUeens usually runs a bit faster. This is probably because Chrome's V8 engine does a lot of JavaScript runtime optimization. In my test JavaScript runs much slower in Firefox (and slower than wasm).
+if you use Chrome or Edge browser, you may notice that the JavaScript version of N-QUeens usually runs a bit faster. This is probably because Chrome's V8 engine does a lot of JavaScript runtime optimization.
+
+In my test JavaScript runs much slower in Firefox (and thus slower than wasm).
