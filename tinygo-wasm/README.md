@@ -45,4 +45,4 @@ And open ```http://localhost:8080``` in your browser.
 
 ### Why wasm runs slower?
 
-If you run this example in Firefox, the JavaScript version of N-Queens does run slower than wasm. But if you run this in Chrome, you would notice that JS runs a great deal faster. This is because Chrome's V8 engine improves a lot of JS performance.
+if you use Chrome or Edge browser, you may notice that the JavaScript version of N-QUeens usually runs a bit faster. This is probably because Chrome's V8 engine does a lot of JavaScript runtime optimization. In my test JavaScript runs much slower in Firefox (and slower than wasm).
