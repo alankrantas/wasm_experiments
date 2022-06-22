@@ -1,4 +1,4 @@
 import assert from "assert";
-import { add } from "../build/debug.js";
-assert.strictEqual(add(1, 2), 3);
+import { nqueens } from "../build/debug.js";
+assert.strictEqual(nqueens(8), 92);
 console.log("ok");
