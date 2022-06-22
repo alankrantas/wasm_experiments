@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>AssemblyScript + WebAssembly Example</title>
+
+    <script type="module">
+        import { nqueens } from "./build/release.js";
+
+        window.runNQueens = function runNQueens(qnum) {
+            if (Number.isNaN(qnum)) {
+                alert("has to be a number");
+                return ""
+            }
+
+            if (qnum < 4 || qnum > 255) {
+                alert("only number between 4~255 is acceptable");
+                return ""
+            }
+
+            const label = document.getElementById("result");
+            let start,
+                result,
+                duration;
+
+            if (label) {
+                start = Date.now();
+                result = nqueens(Number(qnum));
+                duration = (Date.now() - start) / 1000;
+                label.innerHTML = `[AssemblyScript + WASM]: ${qnum}-Queens has ${result} answers (time: ${duration} s)`;
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>N-Queens algorithm (AssemblyScript + WebAssembly)</h1>
+    <hr />
+    <p>
+        Number of queens (4~255): <input type="text" id="qnum" size="4">
+        <input type="button" value="Calculate" onclick="runNQueens(qnum.value);">
+    </p>
+    <p>
+        <label id="result"></label>
+    </p>
+</body>
+
+</html>
