@@ -1,24 +1,19 @@
 export class NQ {
-    n: i32;
-    count: i64;
+    count: i64 = 0;
     board: i32[];
 
-    constructor(qnum: i32) {
-        this.n = qnum;
-        this.count = 0;
-        this.board = [];
-        for (let i: i32 = 0; i < this.n; i++) {
-            this.board.push(0);
-        }
+    constructor(public n: i32) {
+        this.board = new Array(this.n);
     }
 
     placeQueen(pos: i32): void {
-        if (pos >= this.n) {
+        let n = this.n;
+        if (pos >= n) {
             this.count++;
         } else {
-            for (let i: i32 = 0; i < this.n; i++) {
+            for (let i = 0; i < n; i++) {
                 if (this.verifyPos(pos, i)) {
-                    this.board[pos] = i;
+                    unchecked(this.board[pos] = i);
                     this.placeQueen(pos + 1);
                 }
             }
@@ -26,9 +21,9 @@ export class NQ {
     }
 
     verifyPos(checkPos: i32, newPos: i32): bool {
-        for (let i: i32 = 0; i < checkPos; i++) {
-            if ((this.board[i] == newPos) ||
-                (Math.abs(checkPos - i) == Math.abs(this.board[i] - newPos))) {
+        for (let i = 0; i < checkPos; i++) {
+            let pos = unchecked(this.board[i]);
+            if (pos == newPos || abs(checkPos - i) == abs(pos - newPos)) {
                 return false
             }
         }
