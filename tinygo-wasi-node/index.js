@@ -13,10 +13,10 @@ import fs from "fs";
   const module = await WebAssembly.compile(new Uint8Array(buf));
   const instance = wasi.instantiate(module, {});
 
-  const exitCode = wasi.start(instance);
+  const exitCode = wasi.start(instance);  // invoke main()
   const stdout = wasi.getStdoutString();
   const add = instance.exports.add;
 
-  console.log(`add: ${add(2, 3)}`);
+  console.log(`add: ${add(2, 3)}`);  // invoke add()
   console.log(`main: ${stdout}(exit code: ${exitCode})`);
 })();
