@@ -23,7 +23,7 @@ import fs from "fs";
 
   // console.log(instance.exports);  // list of exports
   const { nq } = instance.exports;
-  console.log(`nqueens 8: ${nq(8)}`);  // invoke nq()
+  console.log(`nqueens(8) = ${nq(8)}`);  // invoke nq()
 
   const exitCode = wasi.start(instance); // invoke main()
   const stdout = wasi.getStdoutString();  // stdout of main()
