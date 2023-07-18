@@ -20,13 +20,12 @@ import fs from "fs";
   */
   const module = await WebAssembly.compile(fs.readFileSync(fileName));
   const instance = wasi.instantiate(module, {});
-
+  
   // console.log(instance.exports);  // list of exports
-  const add = instance.exports.add;
+  const { add } = instance.exports;
+  console.log(`add: ${add(2, 3)}`);  // invoke add()
 
   const exitCode = wasi.start(instance);  // invoke main()
   const stdout = wasi.getStdoutString();  // stdout of main()
-
-  console.log(`add: ${add(2, 3)}`);  // invoke add()
   console.log(`main: ${stdout}(exit code: ${exitCode})`);
 })();
