@@ -8,7 +8,7 @@ import fs from "fs";
     args: [],
   });
   
-  const buf = fs.readFileSync("./go/main.wasm");
+  const buf = fs.readFileSync("./src/main.wasm");
   const module = await WebAssembly.compile(new Uint8Array(buf));
 
   // or:
@@ -20,7 +20,7 @@ import fs from "fs";
   const instance = wasi.instantiate(module, {});
 
   const exitCode = wasi.start(instance);  // invoke main()
-  const stdout = wasi.getStdoutString();
+  const stdout = wasi.getStdoutString();  // read the stdout from main()
   console.log(`main: ${stdout}(exit code: ${exitCode})`);
   
   const add = instance.exports.add;
