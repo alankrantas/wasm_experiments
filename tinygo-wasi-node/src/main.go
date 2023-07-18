@@ -1,12 +1,15 @@
 package main
 
-import "fmt"
-
-//export add
-func add(x, y uint32) uint32 {
-	return x + y
-}
+import (
+	"fmt"
+	"main/nqueens"
+)
 
 func main() {
 	fmt.Println("Hello Golang")
+}
+
+//export nq
+func nq(qNum uint8) int {
+	return nqueens.NQueens(qNum)
 }
