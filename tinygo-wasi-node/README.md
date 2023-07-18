@@ -21,8 +21,8 @@ npm i -g wasm-opt
 ```bash
 cd src
 tinygo build -o main.wasm -target=wasi main.go
-# to reduce the binary size and enable optimizations
-tinygo build -scheduler=none --no-debug -opt=2 -o main.wasm -target=wasi main.go
+# or to reduce the binary size and enable optimizations:
+# tinygo build -scheduler=none --no-debug -opt=2 -o main.wasm -target=wasi main.go
 ```
 
 See [here](https://wazero.io/languages/tinygo/#optimizations) for details of the extra build flags.
