@@ -19,13 +19,13 @@ import fs from "fs";
   );
   */
   const module = await WebAssembly.compile(fs.readFileSync(fileName));
-  const instance = wasi.instantiate(module, {});
-  
-  // console.log(instance.exports);  // list of exports
-  const { add } = instance.exports;
-  console.log(`add: ${add(2, 3)}`);  // invoke add()
+  const instance = wasi.instantiate(module, importObject);
 
-  const exitCode = wasi.start(instance);  // invoke main()
+  // console.log(instance.exports);  // list of exports
+  const { nq } = instance.exports;
+  console.log(`nqueens 8: ${nq(8)}`);  // invoke nq()
+
+  const exitCode = wasi.start(instance); // invoke main()
   const stdout = wasi.getStdoutString();  // stdout of main()
   console.log(`main: ${stdout}(exit code: ${exitCode})`);
 })();
