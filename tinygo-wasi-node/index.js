@@ -13,13 +13,13 @@ import fs from "fs";
     args: [],
   });
 
+  const module = await WebAssembly.compile(fs.readFileSync(fileName));
   /*
   const module = await WebAssembly.compile(
     await (await fetch(url)).arrayBuffer()
   );
   */
-  const module = await WebAssembly.compile(fs.readFileSync(fileName));
-  const instance = wasi.instantiate(module, importObject);
+  const instance = wasi.instantiate(module, {});
 
   // console.log(instance.exports);  // list of exports
   const { nq } = instance.exports;
